@@ -10,3 +10,6 @@ TestNoGrades
 BlahBlah
 AllZeroes
 0 0 0 0 0 0 nongradehere
+0000
+0
+0
