@@ -13,6 +13,8 @@ public class Grades {
 	
 	private int maximumGrade = 0;
 	
+	private int length = 0;
+	
 	private float medianGrade = 0;
 	
 	private float averageGrade = 0;
@@ -27,6 +29,10 @@ public class Grades {
 		if (this.grades != null){
 			this.calculateMaximum();
 			this.calculateMinimum();
+			this.length = this.grades.size();
+		}
+		if (this.studentName == null){
+			this.studentName = "No Name Provided";
 		}
 	}
 	
@@ -46,24 +52,18 @@ public class Grades {
 		int tempMax = this.maximumGrade;
 		int index = 0;
 		int tempMin = 0;
-		if (this.grades != null){
-			while (index < this.length()){
-				if (this.grades.get(index) < tempMax){
-					tempMax = this.grades.get(index);
-					tempMin = tempMax;
-				}
-				index++;
+		while (index < this.length()){
+			if (this.grades.get(index) < tempMax){
+				tempMax = this.grades.get(index);
+				tempMin = tempMax;
 			}
-		} else {
-			
+			index++;
 		}
 		this.minimumGrade = tempMin;
 	}
 	
 	public int length(){
-		return (this.grades != null) 
-				? this.grades.size()
-						: 0;
+		return this.length;
 	}
 	
 	public String getName(){
@@ -118,7 +118,7 @@ public class Grades {
 	
 	@Override
 	public String toString(){
-		return this.studentName 
+		return this.getName() 
 				+ " " + ((this.grades != null) 
 					? this.grades.toString()
 							: "[ no grades ]");
