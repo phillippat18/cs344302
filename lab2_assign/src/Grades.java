@@ -46,11 +46,11 @@ public class Grades {
 		// If the supplied List of student grades IS null, class defaults
 		// will take precedence as defined in the class field members.
 		if (this.grades != null){
+			this.length = this.grades.size();
 			this.calculateMaximum();
 			this.calculateMinimum();
 			this.calculateMedian();
 			this.calculateAverage();
-			this.length = this.grades.size();
 		}
 		// If the student's name is null, protect the class
 		// by supplying a default, meaningful value.
