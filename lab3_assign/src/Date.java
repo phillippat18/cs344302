@@ -61,7 +61,9 @@ public class Date implements Comparable<Date>{
 					this.originalDateString.toLowerCase().trim().split("\\s+");
 			// Call cleaner method to prepare the data for parsing.
 			this.cleanLowerCaseDateStringArray();
+			// Parse the newly cleaned array for data.
 			this.parseNumericDateFromString();
+			// Validate that parsed data is valid.
 			this.validateNumericDate();
 		}
 	} // End of single String parameter constructor.
