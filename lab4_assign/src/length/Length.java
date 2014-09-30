@@ -59,9 +59,25 @@ public abstract class Length implements Comparable<Length> {
      * Compare this Length object to the other one.
      */
     public int compareTo(Length other) {
-        // This stub needs to be replaced with the correct code.
-        // Use the toMeters method.
+        if(this.toMeters() < other.toMeters()){
+        	return -1;
+        } else if (this.toMeters() > other.toMeters()){
+        	return 1;
+        }
         return 0;
+    }
+    
+    /** Return true if length is equal to 1.0, false otherwise. This is used
+     * for determining whether or not a unit of measurement should be plural
+     * or singular in the subclasses of the {@link Length}.
+     * @return True if the double in getLength 
+     * is equal to 1.0, false otherwise.
+     * */
+    protected boolean isLengthOne(){
+    	if (this.getLength() != 1.0){
+    		return false;
+    	}
+    	return true;
     }
 
     /**
