@@ -31,7 +31,7 @@ public class Inch extends Length {
 
 	@Override
 	public String getUnit() {
-		// If the line is not 1, return the plural of the unit. Otherwise,
+		// If the length is not 1, return the plural of the unit. Otherwise,
 		// return the singular.
 		if (!this.isLengthOne()){
 			return "inches";
