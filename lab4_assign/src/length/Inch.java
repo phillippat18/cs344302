@@ -19,13 +19,20 @@ public class Inch extends Length {
 
 	@Override
 	public void add(Length other) {
+		// Load the existing length for this object
+		// into a temporary container.
 		double tempLength = this.getLength();
+		// Sum the supplied value from the other Length object, normalizing
+		// using meters.
 		tempLength += (other.toMeters() / Inch.METERS_PER_INCH);
+		// Set the new length for this object.
 		this.setLength(tempLength);
 	}
 
 	@Override
 	public String getUnit() {
+		// If the line is not 1, return the plural of the unit. Otherwise,
+		// return the singular.
 		if (!this.isLengthOne()){
 			return "inches";
 		} else {

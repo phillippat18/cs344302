@@ -15,13 +15,19 @@ public class Meter extends Length {
 
 	@Override
 	public void add(Length other) {
+		// Load the existing length for this object
+		// into a temporary container.
 		double tempLength = this.getLength();
+		// Add the value from toMeters to existing temporary length.
 		tempLength += other.toMeters();
+		// Set the new length.
 		this.setLength(tempLength);
 	}
 
 	@Override
 	public String getUnit() {
+		// If the line is not 1, return the plural of the unit. Otherwise,
+		// return the singular.
 		if (!this.isLengthOne()){
 			return "meters";
 		} else {
