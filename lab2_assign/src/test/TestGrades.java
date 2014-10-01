@@ -16,9 +16,9 @@ public class TestGrades {
 	 * when the supplied list of grades is null.
 	 * */
 	@Test
-	public void test_Median_SecondParam_IsNull() {
-		ArrayList<Integer> validGrades = null;
-		Grades grades = new Grades("Null Grades", validGrades);
+	public void test_Median_GradesListGradesList_IsNull() {
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Null Grades", nullGrades);
 		assertTrue("Grades.median() did not return zero with a null list.", 
 				grades.median() == 0.0);
 	}
@@ -71,8 +71,8 @@ public class TestGrades {
 	 * */
 	@Test
 	public void test_Median_EmptyGradeList(){
-		ArrayList<Integer> invalidGrades = new ArrayList<Integer>();
-		Grades grades = new Grades("No Grades", invalidGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades("No Grades", emptyGrades);
 		assertTrue("Empty list was evaluated to something that was not zero " +
 				"with Grades.median().", grades.median() == 0.0);
 	}
@@ -83,9 +83,9 @@ public class TestGrades {
 	 * when the supplied list of grades is null.
 	 * */
 	@Test
-	public void test_Average_SecondParam_IsNull() {
-		ArrayList<Integer> validGrades = null;
-		Grades grades = new Grades("Null Grades", validGrades);
+	public void test_Average_GradesList_IsNull() {
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Null Grades", nullGrades);
 		assertTrue("Grades.average() did not return zero with a null list.", 
 				grades.average() == 0.0);
 	}
@@ -123,8 +123,8 @@ public class TestGrades {
 	 * */
 	@Test
 	public void test_Average_EmptyGradeList(){
-		ArrayList<Integer> invalidGrades = new ArrayList<Integer>();
-		Grades grades = new Grades("No Grades", invalidGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades("No Grades", emptyGrades);
 		assertTrue("Empty list was evaluated to something that was not zero " +
 				"with Grades.average().", grades.average() == 0.0);
 	}
@@ -135,9 +135,9 @@ public class TestGrades {
 	 * when the supplied list of grades is null.
 	 * */
 	@Test
-	public void test_Minimum_SecondParam_IsNull() {
-		ArrayList<Integer> validGrades = null;
-		Grades grades = new Grades("Null Grades", validGrades);
+	public void test_Minimum_GradesList_IsNull() {
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Null Grades", nullGrades);
 		assertTrue("Grades.minimum() did not return zero with a null list.", 
 				grades.minimum() == 0.0);
 	}
@@ -175,8 +175,8 @@ public class TestGrades {
 	 * */
 	@Test
 	public void test_Minimum_EmptyGradeList(){
-		ArrayList<Integer> invalidGrades = new ArrayList<Integer>();
-		Grades grades = new Grades("No Grades", invalidGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades("No Grades", emptyGrades);
 		assertTrue("Empty list was evaluated to something that was not zero " +
 				"with Grades.minimum().", grades.minimum() == 0.0);
 	}
@@ -187,9 +187,9 @@ public class TestGrades {
 	 * when the supplied list of grades is null.
 	 * */
 	@Test
-	public void test_Maximum_SecondParam_IsNull() {
-		ArrayList<Integer> validGrades = null;
-		Grades grades = new Grades("Null Grades", validGrades);
+	public void test_Maximum_GradesList_IsNull() {
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Null Grades", nullGrades);
 		assertTrue("Grades.minimum() did not return zero with a null list.", 
 				grades.maximum() == 0.0);
 	}
@@ -227,8 +227,8 @@ public class TestGrades {
 	 * */
 	@Test
 	public void test_Maximum_EmptyGradeList(){
-		ArrayList<Integer> invalidGrades = new ArrayList<Integer>();
-		Grades grades = new Grades("No Grades", invalidGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades("No Grades", emptyGrades);
 		assertTrue("Empty list was evaluated to something that was not zero " +
 				"with Grades.minimum().", grades.maximum() == 0.0);
 	}
@@ -239,9 +239,9 @@ public class TestGrades {
 	 * when the supplied list of grades is null.
 	 * */
 	@Test
-	public void test_Length_SecondParam_IsNull() {
-		ArrayList<Integer> validGrades = null;
-		Grades grades = new Grades("Null Grades", validGrades);
+	public void test_Length_GradesList_IsNull() {
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Null Grades", nullGrades);
 		assertTrue("Grades.minimum() did not return zero with a null list.", 
 				grades.length() == 0);
 	}
@@ -279,8 +279,8 @@ public class TestGrades {
 	 * */
 	@Test
 	public void test_Length_EmptyGradeList(){
-		ArrayList<Integer> invalidGrades = new ArrayList<Integer>();
-		Grades grades = new Grades("No Grades", invalidGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades("No Grades", emptyGrades);
 		assertTrue("Empty list was evaluated to something that was not zero " +
 				"with Grades.minimum().", grades.length() == 0);
 	}
@@ -324,6 +324,9 @@ public class TestGrades {
 	
 	// Testing Grades.toString() method
 	
+	/** This test covers the {@link main.Grades#toString() toString()} method
+	 * when the supplied name is valid. Grades list supplied is null.
+	 * */
 	@Test
 	public void test_ToString_GradesAreNull_ValidName(){
 		ArrayList<Integer> nullGrades = null;
@@ -332,7 +335,10 @@ public class TestGrades {
 				"toString value.", 
 				grades.toString().equals("Valid Name [ no grades ]"));
 	}
-	
+
+	/** This test covers the {@link main.Grades#toString() toString()} method
+	 * when the supplied name is null. Grades list supplied is null.
+	 * */
 	@Test
 	public void test_ToString_GradesAreNull_NameIsNull(){
 		ArrayList<Integer> nullGrades = null;
@@ -342,10 +348,13 @@ public class TestGrades {
 				grades.toString().equals("No Name Provided [ no grades ]"));
 	}
 	
+	/** This test covers the {@link main.Grades#toString() toString()} method
+	 * when the supplied name is null. Grades list supplied is empty.
+	 * */
 	@Test
 	public void test_ToString_GradesIsEmpty_NameIsNull(){
-		ArrayList<Integer> nullGrades = new ArrayList<Integer>();
-		Grades grades = new Grades(null, nullGrades);
+		ArrayList<Integer> emptyGrades = new ArrayList<Integer>();
+		Grades grades = new Grades(null, emptyGrades);
 		assertTrue("Null value for grades list did not return proper " +
 				"toString value.", 
 				grades.toString().equals("No Name Provided []"));
