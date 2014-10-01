@@ -55,7 +55,7 @@ public class Grades {
 		}
 		// If the student's name is null, protect the class
 		// by supplying a default, meaningful value.
-		if (this.studentName == null){
+		if (this.studentName == null || this.studentName.isEmpty()){
 			this.studentName = "No Name Provided";
 		}
 	}
