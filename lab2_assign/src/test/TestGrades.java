@@ -27,7 +27,7 @@ public class TestGrades {
 	 * when the supplied list of grades is valid.
 	 * */
 	@Test
-	public void test_Median_ValidGrades(){
+	public void test_Median_ValidGrades_EvenCount(){
 		ArrayList<Integer> validGrades = new ArrayList<Integer>();
 		validGrades.add(80);
 		validGrades.add(90);
@@ -35,6 +35,21 @@ public class TestGrades {
 		Grades grades = new Grades("Valid Grades", validGrades);
 		assertTrue("Valid grades were not evaluated properly with " +
 				"Grades.median().",	grades.median() == 90.0);
+	}
+	
+	/** This test covers the {@link main.Grades#median() median()} method
+	 * when the supplied list of grades is valid.
+	 * */
+	@Test
+	public void test_Median_ValidGrades_OddCount(){
+		ArrayList<Integer> validGrades = new ArrayList<Integer>();
+		validGrades.add(80);
+		validGrades.add(80);
+		validGrades.add(90);
+		validGrades.add(100);
+		Grades grades = new Grades("Valid Grades", validGrades);
+		assertTrue("Valid grades were not evaluated properly with " +
+				"Grades.median().",	grades.median() == 85.0);
 	}
 	
 	/** This test covers the {@link main.Grades#median() median()} method
@@ -306,4 +321,34 @@ public class TestGrades {
  				" was empty with Grades.getName().", 
  				grades.getName().equals("No Name Provided"));
 	}
+	
+	// Testing Grades.toString() method
+	
+	@Test
+	public void test_ToString_GradesAreNull_ValidName(){
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades("Valid Name", nullGrades);
+		assertTrue("Null value for grades list did not return proper " +
+				"toString value.", 
+				grades.toString().equals("Valid Name [ no grades ]"));
+	}
+	
+	@Test
+	public void test_ToString_GradesAreNull_NameIsNull(){
+		ArrayList<Integer> nullGrades = null;
+		Grades grades = new Grades(null, nullGrades);
+		assertTrue("Null value for grades list did not return proper " +
+				"toString value.", 
+				grades.toString().equals("No Name Provided [ no grades ]"));
+	}
+	
+	@Test
+	public void test_ToString_GradesIsEmpty_NameIsNull(){
+		ArrayList<Integer> nullGrades = new ArrayList<Integer>();
+		Grades grades = new Grades(null, nullGrades);
+		assertTrue("Null value for grades list did not return proper " +
+				"toString value.", 
+				grades.toString().equals("No Name Provided []"));
+	}
+	
 }
