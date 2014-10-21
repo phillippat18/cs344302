@@ -27,7 +27,7 @@ public class TestGrades {
 	 * when the supplied list of grades is valid.
 	 * */
 	@Test
-	public void test_Median_ValidGrades_EvenCount(){
+	public void test_Median_ValidGrades_OddCount(){
 		ArrayList<Integer> validGrades = new ArrayList<Integer>();
 		validGrades.add(80);
 		validGrades.add(90);
@@ -41,7 +41,7 @@ public class TestGrades {
 	 * when the supplied list of grades is valid.
 	 * */
 	@Test
-	public void test_Median_ValidGrades_OddCount(){
+	public void test_Median_ValidGrades_EvenCount(){
 		ArrayList<Integer> validGrades = new ArrayList<Integer>();
 		validGrades.add(80);
 		validGrades.add(80);
