@@ -1,4 +1,5 @@
 package paintpanel;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import javax.swing.JPanel;
@@ -31,10 +32,13 @@ public class PaintPanel extends JPanel {
 		super.paintComponent(g); // clears drawing area
 		int i = 0;
 		Point point = model.getPoint(0);
+		Color color = model.getColor(0);
 		while (point != null) {
+			g.setColor(color);
 			g.fillOval(point.x, point.y, 4, 4);
 			i++;
 			point = model.getPoint(i);
+			color = model.getColor(i);
 		}
 	} // end method paintComponent
 } // end class PaintPanel

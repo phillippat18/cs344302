@@ -30,7 +30,8 @@ public class DemoController implements ListSelectionListener, MouseMotionListene
 	 */
 	public void mouseDragged(MouseEvent event) {
 		Point point = event.getPoint(); // find point
-		model.addPoint(point);
+		Color color = view.getSelectedColor(); // get current color
+		model.addPoint(point, color);
 		view.repaint();
 	} // end method mouseDragged
 

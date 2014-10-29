@@ -65,6 +65,7 @@ public class DemoView extends JFrame {
 		colorList = new JList(colorNames);
 		colorList.setVisibleRowCount(5);
 		colorList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		colorList.setSelectedIndex(0);
 		listPanel.add(new JScrollPane(colorList), BorderLayout.CENTER);
 	} // end constructor
 
