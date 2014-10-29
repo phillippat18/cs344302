@@ -18,10 +18,13 @@ public class DemoModel {
 	private int pointCount;
 
 	/** 
-	 * An array of 10000 java.awt.Point references 
+	 * An ArrayList of points to represent each point on the view. 
 	 */
 	private ArrayList<Point> points;
 	
+	/**
+	 * An ArrayList to hold individual colors set by each point.
+	 * */
 	private ArrayList<Color> selectedColors;
 	
 	/** 
@@ -75,9 +78,11 @@ public class DemoModel {
 	}
 	
 	/** 
-	 * @return The color at a given index.
+	 * @return The color at a given index. Returns null if no point exists.
 	 * */
 	public Color getColor(int index){
+		// protect the integrity of the list to avoid
+		// index out of bounds exceptions
 		if(index >= 0 && index < pointCount){
 			return selectedColors.get(index);
 		}

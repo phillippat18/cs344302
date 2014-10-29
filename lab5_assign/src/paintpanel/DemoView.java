@@ -48,7 +48,8 @@ public class DemoView extends JFrame {
 		Color.RED, Color.WHITE, Color.YELLOW};
 
 	/**
-	 * Create and organize the components of the window.
+	 * Create and organize the components of the window. Initializes
+	 * with a default color of Black.
 	 */
 	public DemoView(DemoModel model) {
 		super("Illustrate Model-View-Controller");

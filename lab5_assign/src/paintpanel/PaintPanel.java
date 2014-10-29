@@ -26,7 +26,7 @@ public class PaintPanel extends JPanel {
 
 	/**
 	 * Draw ovals in a 4-by-4 bounding box at specified locations on
-	 * the panel.
+	 * the panel. Each point has its own color.
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // clears drawing area
