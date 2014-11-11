@@ -11,9 +11,9 @@ public class PanelSwitcher {
     public static void main(String[] args) {
         PanelSwitcherModel model = new PanelSwitcherModel();
         PanelSwitcherView view = new PanelSwitcherView();
-	// PanelSwitcherController controller = new PanelSwitcherController(view, model);
+        PanelSwitcherController controller = new PanelSwitcherController(model, view);
         
-        // view.register(controller);
+        view.register(controller);
 
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         view.setSize(400,300);

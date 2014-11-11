@@ -84,6 +84,22 @@ public class PanelSwitcherView extends JFrame {
 
         add(panel1, BorderLayout.CENTER);
     }
+    
+    /** 
+     * Register controller as listener for components added 
+     * to the root content pane.
+     * 
+     * @param controller The event handler for the PaintSwitcher
+     * */
+    public void register(PanelSwitcherController controller){
+    	Component[] components = this.getContentPane().getComponents();
+    	for (Component component : components) {
+			if (component instanceof AbstractButton) {
+				AbstractButton button = (AbstractButton) component;
+				button.addActionListener(controller);
+			}
+		}
+    }
 
     /**
      * This seems to be a way to switch JPanels.  Let me know of any bugs
