@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
 
-import org.xml.sax.InputSource;
-
 public class FileCounts {
     private File file;
     
@@ -44,7 +42,7 @@ public class FileCounts {
     
     public int byteCount() throws IOException {
     	BufferedInputStream input = new BufferedInputStream(new FileInputStream(this.file));
-    	int numBytes = 0;
+    	int numBytes = 0;	
     	while(input.read() != -1){
     		numBytes++;
     	}
