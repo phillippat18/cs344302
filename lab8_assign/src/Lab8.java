@@ -30,10 +30,16 @@ public class Lab8 {
 		}
         FileCounts counter = new FileCounts(file);
         System.out.println(file);
-        System.out.printf("%d lines\n", counter.lineCount());
-        System.out.printf("%d tokens\n", counter.tokenCount());
-        System.out.printf("%d characters\n", counter.charCount());
-        System.out.printf("%d bytes\n", counter.byteCount());
+        try {
+			System.out.printf("%d lines\n", counter.lineCount());
+			System.out.printf("%d tokens\n", counter.tokenCount());
+	        System.out.printf("%d characters\n", counter.charCount());
+	        System.out.printf("%d bytes\n", counter.byteCount());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException ioe){
+			ioe.printStackTrace();
+		}
     }
 
     /**
