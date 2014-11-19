@@ -21,25 +21,35 @@ public class Lab8 {
         // These statements should be be into a loop that runs until all the
         // statements execute without an exception.
         File file = null;
-		try {
-			file = getFileFromUser();
-		} catch (FileNotFoundException e) {
-			System.err.println("Could not acquire file from user.");
-			e.printStackTrace();
-			System.exit(1);
-		}
-        FileCounts counter = new FileCounts(file);
-        System.out.println(file);
-        try {
-			System.out.printf("%d lines\n", counter.lineCount());
-			System.out.printf("%d tokens\n", counter.tokenCount());
-	        System.out.printf("%d characters\n", counter.charCount());
-	        System.out.printf("%d bytes\n", counter.byteCount());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException ioe){
-			ioe.printStackTrace();
-		}
+        boolean tryAgain = false;
+        do{
+        	tryAgain = false;
+			try {
+				file = getFileFromUser();
+			} catch (FileNotFoundException e) {
+				System.err.println("Could not acquire file from user.");
+				e.printStackTrace();
+				tryAgain = true;
+				continue;
+			}
+	        FileCounts counter = new FileCounts(file);
+	        System.out.println(file);
+	        
+	        try {
+				System.out.printf("%d lines\n", counter.lineCount());
+				System.out.printf("%d tokens\n", counter.tokenCount());
+		        System.out.printf("%d characters\n", counter.charCount());
+		        System.out.printf("%d bytes\n", counter.byteCount());
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				tryAgain = true;
+				continue;
+			} catch (IOException ioe){
+				ioe.printStackTrace();
+				tryAgain = true;
+				continue;
+			}
+        } while(tryAgain);
     }
 
     /**
@@ -74,5 +84,4 @@ public class Lab8 {
 
         return fileName;
     } // end method getFileFromUser
-
 }
