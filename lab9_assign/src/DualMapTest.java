@@ -10,7 +10,7 @@ public class DualMapTest {
     public static void main(String[] args) {
         monthsTest();
         daysTest();
-        //numbersTest();
+        numbersTest();
     }
 
     public static void monthsTest() {
